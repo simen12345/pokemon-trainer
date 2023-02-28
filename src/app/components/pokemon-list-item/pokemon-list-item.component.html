@@ -1,10 +1,10 @@
-<li *ngIf="pokemon" class="mb-4 shadow bg-blue-500 rounded-xl">
-    
+<li *ngIf="pokemon" class="mb-4 shadow bg-orange-400 rounded-xl relative w-64 ">
+    <app-catch-pokemon [pokemonName]="pokemon.name"></app-catch-pokemon>
     <section>
-        <img [src]="imgUrl + pokemon.url.split('/')[6]+'.png'" [alt]="pokemon.name">
+        <img [src]="imgUrl + pokemon.url.split('/')[6]+'.png'" [alt]="pokemon.name"  class="block w-40">
     </section >   
     <section class="p-5">
-        <span class="text-xl text-white">{{pokemon.name}} </span>
+        <span class="text-xl text-white">{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1)}} </span>
     </section>
 
 </li>
