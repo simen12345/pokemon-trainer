@@ -9,3 +9,9 @@ export interface PokeResults{
     previous:string,
     results:Pokemon[]
 }
+export interface PokemonResults {
+    count: number;
+    next: string;
+    previous: string;
+    results: Pokemon[];
+}
