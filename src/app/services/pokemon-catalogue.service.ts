@@ -15,6 +15,7 @@ export class PokemonCatalogueService {
   private _error: string = "";
   private _loading: boolean = false;
   
+  
 
   get pokemons(): Pokemon[]{
     return this._pokemons;
@@ -32,7 +33,7 @@ export class PokemonCatalogueService {
 
   public findAllPokemons(): void {
     this._loading = true;
-    this.http.get<PokeResults>(apiPokemon)
+    this.http.get<PokeResults>(`${apiPokemon}?limit=151`)
       .pipe(
         finalize(() => {
           this._loading = false;
