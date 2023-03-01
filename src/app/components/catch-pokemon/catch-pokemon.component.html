@@ -3,16 +3,20 @@
     (click)="onCatchClick()"
     class="rounded-2xl">
 
-       <ng-container *ngIf="isCaught; then caught else notCaught"></ng-container>
+        <ng-container *ngIf="!loading; else spinner">
+            <ng-container *ngIf="isCaught; then caught else notCaught" ></ng-container>
 
-       <ng-template #caught>
-        <img src="./assets/pokeballcaught.png" alt="Caught" class="block w-10 rounded-full"/>
-       </ng-template>
+            <ng-template #caught>
+                <img src="./assets/pokeballcaught.png" alt="Caught" class="block w-10 rounded-full"/>
+            </ng-template>
 
-       <ng-template #notCaught>
-        <img src="./assets/pokeball.png" alt="notCaught" class="block w-10 hover:animate-bounce"/>
-       </ng-template>
-        
+            <ng-template #notCaught>
+                <img src="./assets/pokeball.png" alt="notCaught" class="block w-10"/>
+            </ng-template>
+        </ng-container>
 
+        <ng-template #spinner>
+            <img src="./assets/pokeball-loading.png" alt="loading" class="block w-10 animate-spin"/>
+        </ng-template>
     </button>
 </aside>

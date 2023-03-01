@@ -11,13 +11,10 @@ import { TrainerService } from 'src/app/services/trainer.service';
 })
 export class CatchPokemonComponent  implements OnInit{
 
+  public loading: boolean = false;
+
    public isCaught:boolean=false; 
   @Input() pokemonName: string = "";
- 
-  get loading(): boolean{
-    return this. caughtService.loading;
-  }
-
   
   constructor(
     private trainerService : TrainerService,
@@ -29,10 +26,12 @@ export class CatchPokemonComponent  implements OnInit{
     
  }
  onCatchClick(): void{
+  this.loading = true;
  
   this.caughtService.addToCaught(this.pokemonName)
   .subscribe({
     next: (trainer:Trainer) => {
+      this.loading = false;
       this.isCaught = this.trainerService.inCaught(this.pokemonName);
 
     },
