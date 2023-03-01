@@ -29,10 +29,11 @@ export class CatchPokemonComponent  implements OnInit{
     
  }
  onCatchClick(): void{
-  alert("You just caught a pokemon")
+ 
   this.caughtService.addToCaught(this.pokemonName)
   .subscribe({
-    next: (response:Trainer) => {
+    next: (trainer:Trainer) => {
+      this.isCaught = this.trainerService.inCaught(this.pokemonName);
 
     },
     error: (error:HttpErrorResponse) => {

@@ -37,7 +37,9 @@ export class CaughtPokemonService {
       throw new Error("addToCaught: No pokemon with name: " + pokemonName)
     }
     if(this.trainerService.inCaught(pokemonName)){
-      throw new Error("addToCaught: Pokemon already caught")
+      this.trainerService.removeFromCaught(pokemonName);
+    } else{
+      this.trainerService.addToCaught(pokemon);
     }
     const headers = new HttpHeaders({
       'content-type': 'application/json',
@@ -47,7 +49,7 @@ export class CaughtPokemonService {
     this._loading = true;
     
     return this.http.patch<Trainer>(`${apiTrainers}/${trainer.id}`,{
-      pokemon:[...trainer.pokemon,pokemon]
+      pokemon:[...trainer.pokemon]
     },{
       headers
     })
