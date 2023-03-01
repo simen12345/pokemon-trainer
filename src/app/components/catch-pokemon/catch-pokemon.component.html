@@ -1,7 +1,7 @@
 <aside class="absolute top-4 right-4">
     <button 
     (click)="onCatchClick()"
-    class=" hover:bg-black rounded-2xl">
+    class="rounded-2xl">
 
        <ng-container *ngIf="isCaught; then caught else notCaught"></ng-container>
 
@@ -10,7 +10,7 @@
        </ng-template>
 
        <ng-template #notCaught>
-        <img src="./assets/pokeball.png" alt="notCaught" class="block w-10"/>
+        <img src="./assets/pokeball.png" alt="notCaught" class="block w-10 hover:animate-bounce"/>
        </ng-template>
         
 
