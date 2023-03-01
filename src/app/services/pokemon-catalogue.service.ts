@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { PokeResults } from '../models/pokemon.model';
 import {finalize} from 'rxjs'
+import { StorageUtil } from '../utils/storage.utils';
 const {apiPokemon} = environment
 
 @Injectable({
@@ -52,4 +53,7 @@ export class PokemonCatalogueService {
       })
 
   } 
+  public pokemonByName(name:string): Pokemon|undefined{
+    return this._pokemons.find((pokemon:Pokemon) => pokemon.name ===name);
+  }
 }
