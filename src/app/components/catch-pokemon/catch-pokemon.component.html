@@ -2,10 +2,17 @@
     <button 
     (click)="onCatchClick()"
     class=" hover:bg-black rounded-2xl">
-       <span>
-            <img src="./assets/pokeball.png" alt="Caught" class="block w-10"/>
-        </span>
+
+       <ng-container *ngIf="isCaught; then caught else notCaught"></ng-container>
+
+       <ng-template #caught>
+        <img src="./assets/pokeballcaught.png" alt="Caught" class="block w-10 rounded-full"/>
+       </ng-template>
+
+       <ng-template #notCaught>
+        <img src="./assets/pokeball.png" alt="notCaught" class="block w-10"/>
+       </ng-template>
+        
 
     </button>
-    
 </aside>
