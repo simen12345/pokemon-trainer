@@ -4,13 +4,19 @@
     </span>
     <ng-container *ngIf="trainer !== undefined">
         <ul class="flex">
-            <li class="px-20">
+            <li class="px-20 hover:bg-blue-700 hover:outline rounded-xl">
                 <a routerLink="/trainer">Trainer</a>
             </li>
         </ul>
         <ul>
-            <li class="px-20">
+            <li class="px-20 hover:bg-blue-700 hover:outline rounded-xl">
                 <a routerLink="/pokemon-catalogue">Pokemons</a>
+            </li>
+        </ul>
+        <ul>
+            <li class="px-20 hover:bg-blue-700 hover:outline rounded-xl">
+                <a routerLink="/"
+                (click)="onLogout()">Log out</a>
             </li>
         </ul>
     </ng-container>

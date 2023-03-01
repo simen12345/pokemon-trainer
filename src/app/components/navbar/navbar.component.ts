@@ -18,4 +18,7 @@ export class NavbarComponent {
   constructor(
     private readonly trainerService: TrainerService
   ){}
+  onLogout():void{
+    this.trainerService.logOut();
+  }
 }

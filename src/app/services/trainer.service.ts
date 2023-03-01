@@ -42,4 +42,9 @@ export class TrainerService {
       this._trainer.pokemon = this._trainer.pokemon.filter((pokemon:Pokemon)=> pokemon.name !==pokemonName)
     }
   }
+
+  public logOut(): void{
+    sessionStorage.clear();
+    this.trainer=undefined;
+  }
 }
